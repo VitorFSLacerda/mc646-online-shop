@@ -92,7 +92,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 01: limites inferiores válidos → save() ok")
+    @DisplayName("Caso teste 01: limites inferiores válidos → save() ok")
     void casoteste01a_validLowerBounds_saveOk() {
         Product p = baseValid(); // já está nos limites inferiores
         when(productRepository.save(any())).thenAnswer(inv -> inv.getArgument(0));
@@ -102,7 +102,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 01 (compl.): price=1.00 válido")
+    @DisplayName("Caso teste 01 (compl.): price=1.00 válido")
     void casoteste01b_price1_valid() {
         Product p = baseValid();
         p.setPrice(new BigDecimal("1.00"));
@@ -110,7 +110,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 01 (compl.): quantityInStock=0 válido")
+    @DisplayName("Caso teste 01 (compl.): quantityInStock=0 válido")
     void casoteste01c_qty0_valid() {
         Product p = baseValid();
         p.setQuantityInStock(0);
@@ -118,7 +118,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 01 (compl.): weight=0.0 válido")
+    @DisplayName("Caso teste 01 (compl.): weight=0.0 válido")
     void casoteste01d_weight0_valid() {
         Product p = baseValid();
         p.setWeight(0.0d);
@@ -130,7 +130,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 02: limites superiores válidos → save() ok")
+    @DisplayName("Caso teste 02: limites superiores válidos → save() ok")
     void casoteste02a_validUpperBounds_saveOk() {
         Product p = baseValid();
         p.setTitle("X".repeat(100));
@@ -148,7 +148,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 02 (compl.): description=50 válido")
+    @DisplayName("Caso teste 02 (compl.): description=50 válido")
     void casoteste02b_description50_valid() {
         Product p = baseValid();
         p.setDescription("D".repeat(50));
@@ -156,7 +156,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 02 (compl.): price=9999 válido")
+    @DisplayName("Caso teste 02 (compl.): price=9999 válido")
     void casoteste02c_price9999_valid() {
         Product p = baseValid();
         p.setPrice(new BigDecimal("9999"));
@@ -164,7 +164,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 02 (compl.): dimensions=50 válido")
+    @DisplayName("Caso teste 02 (compl.): dimensions=50 válido")
     void casoteste02d_dimensions50_valid() {
         Product p = baseValid();
         p.setDimensions("D".repeat(50));
@@ -176,7 +176,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 03: keywords=null válido")
+    @DisplayName("Caso teste 03: keywords=null válido")
     void casoteste03a_keywordsNull_valid() {
         Product p = baseValid();
         p.setKeywords(null);
@@ -184,7 +184,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 03: description=null válido")
+    @DisplayName("Caso teste 03: description=null válido")
     void casoteste03b_descriptionNull_valid() {
         Product p = baseValid();
         p.setDescription(null);
@@ -192,7 +192,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 03: weight=null válido")
+    @DisplayName("Caso teste 03: weight=null válido")
     void casoteste03c_weightNull_valid() {
         Product p = baseValid();
         p.setWeight(null);
@@ -200,7 +200,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 03: dimensions=null válido")
+    @DisplayName("Caso teste 03: dimensions=null válido")
     void casoteste03d_dimensionsNull_valid() {
         Product p = baseValid();
         p.setDimensions(null);
@@ -212,7 +212,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 04: title com 2 chars inválido")
+    @DisplayName("Caso teste 04: title com 2 chars inválido")
     void casoteste04_titleTooShort_invalid() {
         Product p = baseValid();
         p.setTitle("AB");
@@ -224,7 +224,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 05: title com 101 chars inválido")
+    @DisplayName("Caso teste 05: title com 101 chars inválido")
     void casoteste05_titleTooLong_invalid() {
         Product p = baseValid();
         p.setTitle("X".repeat(101));
@@ -236,7 +236,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 06: title=null inválido")
+    @DisplayName("Caso teste 06: title=null inválido")
     void casoteste06_titleNull_invalid() {
         Product p = baseValid();
         p.setTitle(null);
@@ -248,7 +248,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 07: keywords com 201 chars inválido")
+    @DisplayName("Caso teste 07: keywords com 201 chars inválido")
     void casoteste07_keywordsTooLong_invalid() {
         Product p = baseValid();
         p.setKeywords("K".repeat(201));
@@ -260,7 +260,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 08: description com 49 chars inválido")
+    @DisplayName("Caso teste 08: description com 49 chars inválido")
     void casoteste08_descriptionTooShort_invalid() {
         Product p = baseValid();
         p.setDescription("D".repeat(49));
@@ -280,7 +280,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 10: rating=0 inválido")
+    @DisplayName("Caso teste 10: rating=0 inválido")
     void casoteste10_ratingBelow_invalid() {
         Product p = baseValid();
         p.setRating(0);
@@ -292,7 +292,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 11: rating=11 inválido")
+    @DisplayName("Caso teste 11: rating=11 inválido")
     void casoteste11_ratingAbove_invalid() {
         Product p = baseValid();
         p.setRating(11);
@@ -312,7 +312,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 13: price=0.99 inválido")
+    @DisplayName("Caso teste 13: price=0.99 inválido")
     void casoteste13_priceBelow_invalid() {
         Product p = baseValid();
         p.setPrice(new BigDecimal("0.99"));
@@ -324,7 +324,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 14: price=10000 inválido")
+    @DisplayName("Caso teste 14: price=10000 inválido")
     void casoteste14_priceAbove_invalid() {
         Product p = baseValid();
         p.setPrice(new BigDecimal("10000"));
@@ -336,7 +336,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 15: price=null inválido")
+    @DisplayName("Caso teste 15: price=null inválido")
     void casoteste15_priceNull_invalid() {
         Product p = baseValid();
         p.setPrice(null);
@@ -356,7 +356,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 17: quantityInStock=-1 inválido")
+    @DisplayName("Caso teste 17: quantityInStock=-1 inválido")
     void casoteste17_quantityNegative_invalid() {
         Product p = baseValid();
         p.setQuantityInStock(-1);
@@ -368,7 +368,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 18: quantityInStock=null -> VÁLIDO (domínio permite nulo)")
+    @DisplayName("Caso teste 18: quantityInStock=null -> VÁLIDO (domínio permite nulo)")
     void casoteste18_quantityNull_valid() {
         Product p = baseValid();
         p.setQuantityInStock(null);
@@ -380,7 +380,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 19: status=null inválido")
+    @DisplayName("Caso teste 19: status=null inválido")
     void casoteste19_statusNull_invalid() {
         Product p = baseValid();
         p.setStatus(null);
@@ -400,7 +400,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 21: status=IN_STOCK válido")
+    @DisplayName("Caso teste 21: status=IN_STOCK válido")
     void casoteste21_statusInStock_valid() {
         Product p = baseValid();
         p.setStatus(ProductStatus.IN_STOCK);
@@ -408,7 +408,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 22: status=OUT_OF_STOCK válido")
+    @DisplayName("Caso teste 22: status=OUT_OF_STOCK válido")
     void casoteste22_statusOutOfStock_valid() {
         Product p = baseValid();
         p.setStatus(ProductStatus.OUT_OF_STOCK);
@@ -416,7 +416,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 23: status=PREORDER válido")
+    @DisplayName("Caso teste 23: status=PREORDER válido")
     void casoteste23_statusPreorder_valid() {
         Product p = baseValid();
         p.setStatus(ProductStatus.PREORDER);
@@ -424,7 +424,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Planilha 24: status=DISCONTINUED válido")
+    @DisplayName("Caso teste 24: status=DISCONTINUED válido")
     void casoteste24_statusDiscontinued_valid() {
         Product p = baseValid();
         p.setStatus(ProductStatus.DISCONTINUED);
@@ -444,7 +444,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 26: weight=-0.01 inválido")
+    @DisplayName("Caso teste 26: weight=-0.01 inválido")
     void casoteste26_weightNegative_invalid() {
         Product p = baseValid();
         p.setWeight(-0.01d);
@@ -456,7 +456,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 27: dimensions com 51 chars inválido")
+    @DisplayName("Caso teste 27: dimensions com 51 chars inválido")
     void casoteste27_dimensionsTooLong_invalid() {
         Product p = baseValid();
         p.setDimensions("D".repeat(51));
@@ -468,7 +468,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 28: dateAdded=null inválido")
+    @DisplayName("Caso teste 28: dateAdded=null inválido")
     void casoteste28_dateAddedNull_invalid() {
         Product p = baseValid();
         p.setDateAdded(null);
@@ -480,7 +480,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Planilha 29: dateModified == dateAdded → DOMÍNIO NÃO RESTRINGE (considerado VÁLIDO aqui)")
+    @DisplayName("Caso teste 29: dateModified == dateAdded → DOMÍNIO NÃO RESTRINGE (considerado VÁLIDO aqui)")
     void casoteste29_dateModifiedEqualsDateAdded_validByDomain() {
         Product p = baseValid();
         Instant t = Instant.now();
