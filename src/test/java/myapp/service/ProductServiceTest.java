@@ -24,21 +24,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 /**
  * MC646 – Atividade 3
- *
- * Organização dos testes por CASO DA PLANILHA (01–29).
- * Em cada seção, os testes listados “um embaixo do outro” se complementam
- * para cobrir aquele caso específico da planilha. Quando um caso da planilha
- * não é testável diretamente na ENTIDADE, deixamos apenas uma observação “NÃO APLICÁVEL NA ENTIDADE”.
- *
+ * 
  * Estratégia:
  *  - VÁLIDOS: checam Bean Validation (0 violações) e, nos casos 01 e 02,
  *    exercitam productService.save() (repositório mockado).
  *  - INVÁLIDOS: checam que há violação na propriedade correta.
  *
- * Observação importante (CASO 29):
- *  - A planilha considera “dateModified == dateAdded” inválido.
- *  - O domínio atual NÃO valida ordem de datas, então aqui o teste confirma que
- *    NÃO há violação (passa como válido).
  */
 @ExtendWith(MockitoExtension.class)
 class ProductServiceTest {
