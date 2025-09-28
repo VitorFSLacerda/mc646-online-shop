@@ -24,7 +24,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 /**
  * MC646 – Atividade 3
- * 
+ *
  * Estratégia:
  *  - VÁLIDOS: checam Bean Validation (0 violações) e, nos casos 01 e 02,
  *    exercitam productService.save() (repositório mockado).
@@ -85,7 +85,7 @@ class ProductServiceTest {
     @Test
     @DisplayName("Caso teste 01: limites inferiores válidos → save() ok")
     void casoteste01a_validLowerBounds_saveOk() {
-        Product p = baseValid(); // já está nos limites inferiores
+        Product p = baseValid();
         when(productRepository.save(any())).thenAnswer(inv -> inv.getArgument(0));
         assertNoViolations(p);
         assertNotNull(productService.save(p));
@@ -263,7 +263,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Caso teste 10: rating=0 inválido")
+    @DisplayName("Caso teste 9: rating=0 inválido")
     void casoteste10_ratingBelow_invalid() {
         Product p = baseValid();
         p.setRating(0);
@@ -275,7 +275,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Caso teste 11: rating=11 inválido")
+    @DisplayName("Caso teste 10: rating=11 inválido")
     void casoteste11_ratingAbove_invalid() {
         Product p = baseValid();
         p.setRating(11);
@@ -287,7 +287,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Caso teste 13: price=0.99 inválido")
+    @DisplayName("Caso teste 11: price=0.99 inválido")
     void casoteste13_priceBelow_invalid() {
         Product p = baseValid();
         p.setPrice(new BigDecimal("0.99"));
@@ -299,7 +299,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Caso teste 14: price=10000 inválido")
+    @DisplayName("Caso teste 12: price=10000 inválido")
     void casoteste14_priceAbove_invalid() {
         Product p = baseValid();
         p.setPrice(new BigDecimal("10000"));
@@ -311,7 +311,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Caso teste 15: price=null inválido")
+    @DisplayName("Caso teste 13: price=null inválido")
     void casoteste15_priceNull_invalid() {
         Product p = baseValid();
         p.setPrice(null);
@@ -323,7 +323,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Caso teste 17: quantityInStock=-1 inválido")
+    @DisplayName("Caso teste 14: quantityInStock=-1 inválido")
     void casoteste17_quantityNegative_invalid() {
         Product p = baseValid();
         p.setQuantityInStock(-1);
@@ -335,7 +335,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Caso teste 19: status=null inválido")
+    @DisplayName("Caso teste 15: status=null inválido")
     void casoteste19_statusNull_invalid() {
         Product p = baseValid();
         p.setStatus(null);
@@ -347,7 +347,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Caso teste 21: status=IN_STOCK válido")
+    @DisplayName("Caso teste 16: status=IN_STOCK válido")
     void casoteste21_statusInStock_valid() {
         Product p = baseValid();
         p.setStatus(ProductStatus.IN_STOCK);
@@ -355,7 +355,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Caso teste 22: status=OUT_OF_STOCK válido")
+    @DisplayName("Caso teste 17: status=OUT_OF_STOCK válido")
     void casoteste22_statusOutOfStock_valid() {
         Product p = baseValid();
         p.setStatus(ProductStatus.OUT_OF_STOCK);
@@ -363,7 +363,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Caso teste 23: status=PREORDER válido")
+    @DisplayName("Caso teste 18: status=PREORDER válido")
     void casoteste23_statusPreorder_valid() {
         Product p = baseValid();
         p.setStatus(ProductStatus.PREORDER);
@@ -371,7 +371,7 @@ class ProductServiceTest {
     }
 
     @Test
-    @DisplayName("Caso teste 24: status=DISCONTINUED válido")
+    @DisplayName("Caso teste 19: status=DISCONTINUED válido")
     void casoteste24_statusDiscontinued_valid() {
         Product p = baseValid();
         p.setStatus(ProductStatus.DISCONTINUED);
@@ -383,7 +383,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Caso teste 26: weight=-0.01 inválido")
+    @DisplayName("Caso teste 20: weight=-0.01 inválido")
     void casoteste26_weightNegative_invalid() {
         Product p = baseValid();
         p.setWeight(-0.01d);
@@ -395,7 +395,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Caso teste 27: dimensions com 51 chars inválido")
+    @DisplayName("Caso teste 21: dimensions com 51 chars inválido")
     void casoteste27_dimensionsTooLong_invalid() {
         Product p = baseValid();
         p.setDimensions("D".repeat(51));
@@ -407,7 +407,7 @@ class ProductServiceTest {
     // =====================================================================
 
     @Test
-    @DisplayName("Caso teste 28: dateAdded=null inválido")
+    @DisplayName("Caso teste 22: dateAdded=null inválido")
     void casoteste28_dateAddedNull_invalid() {
         Product p = baseValid();
         p.setDateAdded(null);
