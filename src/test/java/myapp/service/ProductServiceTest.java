@@ -367,13 +367,11 @@ class ProductServiceTest {
     // CASO TESTE 18 — quantityInStock = null
     // =====================================================================
 
-    @Test
-    @DisplayName("Caso teste 18: quantityInStock=null -> VÁLIDO (domínio permite nulo)")
-    void casoteste18_quantityNull_valid() {
-        Product p = baseValid();
-        p.setQuantityInStock(null);
-        assertNoViolations(p);
-    }
+    /*
+     * REMOVIDO — NÃO APLICÁVEL NA ENTIDADE:
+     * quantityInStock=null é aceito pelo domínio (sem @NotNull). Como não há
+     * validação a ser exercitada na ENTIDADE, o caso torna-se redundante.
+     */
 
     // =====================================================================
     // CASO TESTE 19 — Status nulo (INVÁLIDO)
@@ -479,14 +477,10 @@ class ProductServiceTest {
     // CASO TESTE 29 — Data de modificação presente (= criação)
     // =====================================================================
 
-    @Test
-    @DisplayName("Caso teste 29: dateModified == dateAdded → DOMÍNIO NÃO RESTRINGE (considerado VÁLIDO aqui)")
-    void casoteste29_dateModifiedEqualsDateAdded_validByDomain() {
-        Product p = baseValid();
-        Instant t = Instant.now();
-        p.setDateAdded(t);
-        p.setDateModified(t);
-        // O domínio atual não impõe “dateModified > dateAdded”.
-        assertNoViolations(p);
-    }
+    /*
+     * REMOVIDO — NÃO APLICÁVEL NA ENTIDADE:
+     *  - A planilha considera “dateModified == dateAdded” inválido.
+     *  - O domínio atual NÃO valida ordem de datas, então aqui o teste confirma que
+     *    NÃO há violação (passa como válido).
+     */
 }
