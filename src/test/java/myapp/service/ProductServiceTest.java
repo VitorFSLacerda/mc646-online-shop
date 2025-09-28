@@ -268,15 +268,7 @@ class ProductServiceTest {
     }
 
     // =====================================================================
-    // CASO TESTE 09 — Avaliação NÃO-INTEIRA (INVÁLIDO)
-    // =====================================================================
-    /*
-     * NÃO APLICÁVEL NA ENTIDADE:
-     * O campo é Integer; valores “4.7”/“texto” falham na conversão (API/UI) antes de chegar ao domínio.
-     */
-
-    // =====================================================================
-    // CASO TESTE 10 — Avaliação < 1 (INVÁLIDO)
+    // CASO TESTE 09 — Avaliação < 1 (INVÁLIDO)
     // =====================================================================
 
     @Test
@@ -288,7 +280,7 @@ class ProductServiceTest {
     }
 
     // =====================================================================
-    // CASO TESTE 11 — Avaliação > 10 (INVÁLIDO)
+    // CASO TESTE 10 — Avaliação > 10 (INVÁLIDO)
     // =====================================================================
 
     @Test
@@ -300,15 +292,7 @@ class ProductServiceTest {
     }
 
     // =====================================================================
-    // CASO TESTE 12 — Preço NÃO-DECIMAL (INVÁLIDO)
-    // =====================================================================
-    /*
-     * NÃO APLICÁVEL NA ENTIDADE:
-     * O campo é BigDecimal; valores não numéricos falham na camada de entrada.
-     */
-
-    // =====================================================================
-    // CASO TESTE 13 — Preço < 1 (INVÁLIDO)
+    // CASO TESTE 11 — Preço < 1 (INVÁLIDO)
     // =====================================================================
 
     @Test
@@ -320,7 +304,7 @@ class ProductServiceTest {
     }
 
     // =====================================================================
-    // CASO TESTE 14 — Preço > 9999 (INVÁLIDO)
+    // CASO TESTE 12 — Preço > 9999 (INVÁLIDO)
     // =====================================================================
 
     @Test
@@ -332,7 +316,7 @@ class ProductServiceTest {
     }
 
     // =====================================================================
-    // CASO TESTE 15 — Preço nulo (INVÁLIDO)
+    // CASO TESTE 13 — Preço nulo (INVÁLIDO)
     // =====================================================================
 
     @Test
@@ -344,15 +328,7 @@ class ProductServiceTest {
     }
 
     // =====================================================================
-    // CASO TESTE 16 — Quantidade NÃO-INTEIRA (INVÁLIDO)
-    // =====================================================================
-    /*
-     * NÃO APLICÁVEL NA ENTIDADE:
-     * O campo é Integer; “3.5” falha na conversão antes do domínio.
-     */
-
-    // =====================================================================
-    // CASO TESTE 17 — Quantidade < 0 (INVÁLIDO)
+    // CASO TESTE 14 — Quantidade < 0 (INVÁLIDO)
     // =====================================================================
 
     @Test
@@ -364,17 +340,7 @@ class ProductServiceTest {
     }
 
     // =====================================================================
-    // CASO TESTE 18 — quantityInStock = null
-    // =====================================================================
-
-    /*
-     * REMOVIDO — NÃO APLICÁVEL NA ENTIDADE:
-     * quantityInStock=null é aceito pelo domínio (sem @NotNull). Como não há
-     * validação a ser exercitada na ENTIDADE, o caso torna-se redundante.
-     */
-
-    // =====================================================================
-    // CASO TESTE 19 — Status nulo (INVÁLIDO)
+    // CASO TESTE 15 — Status nulo (INVÁLIDO)
     // =====================================================================
 
     @Test
@@ -386,15 +352,7 @@ class ProductServiceTest {
     }
 
     // =====================================================================
-    // CASO TESTE 20 — Status fora do conjunto (INVÁLIDO)
-    // =====================================================================
-    /*
-     * NÃO APLICÁVEL NA ENTIDADE:
-     * O campo é enum; um valor “inválido” não é deserializado para o enum.
-     */
-
-    // =====================================================================
-    // CASO TESTE 21–24 — Status válidos (VÁLIDOS)
+    // CASO TESTE 16–19 — Status válidos (VÁLIDOS)
     // =====================================================================
 
     @Test
@@ -430,15 +388,7 @@ class ProductServiceTest {
     }
 
     // =====================================================================
-    // CASO TESTE 25 — Peso NÃO-DECIMAL (INVÁLIDO)
-    // =====================================================================
-    /*
-     * NÃO APLICÁVEL NA ENTIDADE:
-     * O campo é Double; “abc” falha antes de instanciar a entidade.
-     */
-
-    // =====================================================================
-    // CASO TESTE 26 — Peso < 0 (INVÁLIDO)
+    // CASO TESTE 20 — Peso < 0 (INVÁLIDO)
     // =====================================================================
 
     @Test
@@ -450,7 +400,7 @@ class ProductServiceTest {
     }
 
     // =====================================================================
-    // CASO TESTE 27 — Dimensões > 50 (INVÁLIDO)
+    // CASO TESTE 21 — Dimensões > 50 (INVÁLIDO)
     // =====================================================================
 
     @Test
@@ -462,7 +412,7 @@ class ProductServiceTest {
     }
 
     // =====================================================================
-    // CASO TESTE 28 — Data de adição nula (INVÁLIDO)
+    // CASO TESTE 22 — Data de adição nula (INVÁLIDO)
     // =====================================================================
 
     @Test
@@ -472,15 +422,4 @@ class ProductServiceTest {
         p.setDateAdded(null);
         assertHasViolationOn(p, "dateAdded");
     }
-
-    // =====================================================================
-    // CASO TESTE 29 — Data de modificação presente (= criação)
-    // =====================================================================
-
-    /*
-     * REMOVIDO — NÃO APLICÁVEL NA ENTIDADE:
-     *  - A planilha considera “dateModified == dateAdded” inválido.
-     *  - O domínio atual NÃO valida ordem de datas, então aqui o teste confirma que
-     *    NÃO há violação (passa como válido).
-     */
 }
